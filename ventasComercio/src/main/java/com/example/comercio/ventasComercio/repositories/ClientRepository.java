@@ -1,6 +1,7 @@
-package com.desafioCliente.desafio.repositories;
+package com.example.comercio.ventasComercio.repositories;
 
-import com.desafioCliente.desafio.entities.Client;
+
+import com.example.comercio.ventasComercio.entities.Client;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

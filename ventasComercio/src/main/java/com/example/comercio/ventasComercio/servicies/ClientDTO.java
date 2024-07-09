@@ -1,4 +1,4 @@
-package com.desafioCliente.desafio.servicies;
+package com.example.comercio.ventasComercio.servicies;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

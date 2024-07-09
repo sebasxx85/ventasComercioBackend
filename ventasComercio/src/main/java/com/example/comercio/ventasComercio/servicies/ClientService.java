@@ -1,8 +1,9 @@
-package com.desafioCliente.desafio.servicies;
+package com.example.comercio.ventasComercio.servicies;
 
 
-import com.desafioCliente.desafio.entities.Client;
-import com.desafioCliente.desafio.repositories.ClientRepository;
+
+import com.example.comercio.ventasComercio.entities.Client;
+import com.example.comercio.ventasComercio.repositories.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,4 +1,4 @@
-package com.desafioCliente.desafio.Config;
+package com.example.comercio.ventasComercio.Config;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

@@ -1,8 +1,9 @@
-package com.desafioCliente.desafio.controllers;
+package com.example.comercio.ventasComercio.controllers;
 
-import com.desafioCliente.desafio.entities.Client;
-import com.desafioCliente.desafio.servicies.ClientDTO;
-import com.desafioCliente.desafio.servicies.ClientService;
+
+import com.example.comercio.ventasComercio.entities.Client;
+import com.example.comercio.ventasComercio.servicies.ClientDTO;
+import com.example.comercio.ventasComercio.servicies.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;

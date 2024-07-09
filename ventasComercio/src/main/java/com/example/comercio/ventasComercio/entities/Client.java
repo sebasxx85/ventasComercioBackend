@@ -1,4 +1,4 @@
-package com.desafioCliente.desafio.entities;
+package com.example.comercio.ventasComercio.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -17,9 +17,7 @@ public class Client {
     @Getter @Setter private String lastname;
     @Getter @Setter private Integer dni;
 
-    //Para hacer login
-    @Getter @Setter private String user;
-    @Getter @Setter private String password;
+
 
 
 }

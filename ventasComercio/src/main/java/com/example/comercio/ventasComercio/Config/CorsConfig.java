@@ -1,4 +1,4 @@
-package com.desafioCliente.desafio.Config;
+package com.example.comercio.ventasComercio.Config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
