@@ -4,6 +4,8 @@ import jakarta.persistence.Basic;
 import jakarta.persistence.*;
 import lombok.*;
 
+@Entity @Table(name = "invoiceDetails")
+
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString

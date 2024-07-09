@@ -1,7 +1,5 @@
 package com.example.comercio.ventasComercio.servicies;
 
-
-
 import com.example.comercio.ventasComercio.entities.Client;
 import com.example.comercio.ventasComercio.repositories.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
+
 
 @Service
 public class ClientService {
@@ -35,25 +33,6 @@ public class ClientService {
 
     public void delete(Long id) {
         repository.deleteById(id);
-    }
-
-
-    public ClientDTO login(String user, String password) {
-        Client client = repository.findByUserAndPassword(user, password);
-        ClientDTO clientDTO = new ClientDTO(client.getId(), client.getName(), client.getLastname(), client.getDni());
-        return clientDTO;
-    }
-
-    public ClientDTO convertToDTO(Client client) {
-        ClientDTO clientDTO = new ClientDTO(client.getId(), client.getName(), client.getLastname(), client.getDni());
-        return clientDTO;
-    }
-
-    // Método para convertir una lista de Client a una lista de ClientDTO
-    public List<ClientDTO> convertToDTOList(List<Client> clients) {
-        return clients.stream()
-                .map(this::convertToDTO)
-                .collect(Collectors.toList());
     }
 
 

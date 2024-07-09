@@ -3,6 +3,7 @@ package com.example.comercio.ventasComercio.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
+@Entity @Table(name = "product")
 
 @NoArgsConstructor
 @AllArgsConstructor

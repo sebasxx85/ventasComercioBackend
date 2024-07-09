@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 public interface ClientRepository extends JpaRepository<Client, Long> {
 
     //Se usa camelCase
-    public Client findByUserAndPassword(String user, String password);
+   // public Client findByUserAndPassword(String user, String password);
 
 
 
