@@ -6,18 +6,59 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
-@RequestMapping("api/v1/users")
+@RequestMapping("api/v1/auth")
 public class ClientController {
 
     @Autowired
     private ClientService service;
 
     //Crear Usuario
-    @PostMapping()
+    @PostMapping("/register")
     public ResponseEntity<Client> create(@RequestBody Client client) {
         try {
             return new ResponseEntity<>(service.save(client), HttpStatus.CREATED);
+        } catch (Exception e) {
+            System.out.println(e);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
+    }
+
+
+    //Actualizar usuario
+    @PutMapping("/{id}")
+    public ResponseEntity<Client> update(@PathVariable Long id, @RequestBody Client userDetails) {
+        try {
+            Client client = service.findById(id);
+            if (client != null) {
+                client.setName(userDetails.getName());
+                client.setLastname(userDetails.getLastname());
+                client.setDni(userDetails.getDni());
+                // Actualiza otros campos según sea necesario
+                service.save(client);
+                return ResponseEntity.ok(client);
+            } else {
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
+    }
+
+   ////////////////////// OTROS Metodos ////////////////////////////////
+
+    @GetMapping("/")
+    public ResponseEntity<List<Client>> readAll() {
+        try {
+            List<Client> clients = service.readAll();
+            if (!clients.isEmpty()) {
+                return ResponseEntity.ok(clients);
+            } else {
+                return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+            }
         } catch (Exception e) {
             System.out.println(e);
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
@@ -40,26 +81,6 @@ public class ClientController {
         }
     }
 
-
-    @PutMapping("/{id}")
-    public ResponseEntity<Client> update(@PathVariable Long id, @RequestBody Client userDetails) {
-        try {
-            Client client = service.findById(id);
-            if (client != null) {
-                client.setName(userDetails.getName());
-                client.setLastname(userDetails.getLastname());
-                client.setDni(userDetails.getDni());
-                // Actualiza otros campos según sea necesario
-                service.save(client);
-                return ResponseEntity.ok(client);
-            } else {
-                return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
-            }
-        } catch (Exception e) {
-            System.out.println(e);
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
-        }
-    }
 
 
     @DeleteMapping("/{id}")
